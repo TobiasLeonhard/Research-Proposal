@@ -2,6 +2,9 @@
     // LaTeX Workshop settings for output directory
     "latex-workshop.latex.outDir": "./export",
     "latex-workshop.latex.clean.subfolder.enabled": true,
+    // Use the recipe that explicitly runs Makeglossaries so the editor
+    // build will always generate the .acr file when building from the GUI.
+    "latex-workshop.latex.recipe.default": "pdfLaTeX ➞ Makeglossaries ➞ Biber ➞ pdfLaTeX × 2",
     
     // This ensures the PDF is still accessible
     "latex-workshop.view.pdf.internal.synctex.keybinding": "double-click",
@@ -19,14 +22,6 @@
                 "%DOC%"
             ]
         },
-        // {
-        //     "name": "bibtex",
-        //     "command": "bibtex",
-        //     "args": [
-        //         "export/%DOCFILE%"
-        //     ]
-        // }
-        // ,
         {
             "name": "biber",
             "command": "biber",
@@ -36,6 +31,16 @@
                 "%DOCFILE%"
             ]
         }
+        ,
+        {
+            "name": "makeglossaries",
+            "command": "powershell",
+            "args": [
+                "-NoProfile",
+                "-Command",
+                "cd 'export'; makeglossaries %DOCFILE%"
+            ]
+        },
     ],
     "latex-workshop.latex.recipes": [
         {
@@ -48,8 +53,12 @@
             ]
         },
         {
-            "name": "pdfLaTeX",
+            "name": "pdfLaTeX ➞ Makeglossaries ➞ Biber ➞ pdfLaTeX × 2",
             "tools": [
+                "pdflatex",
+                "makeglossaries",
+                "biber",
+                "pdflatex",
                 "pdflatex"
             ]
         }

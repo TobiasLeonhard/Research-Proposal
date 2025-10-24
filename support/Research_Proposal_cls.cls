@@ -18,6 +18,7 @@
 \RequirePackage[utf8]{inputenc} % Standard input encoding
 \RequirePackage[T1]{fontenc} % Standard font encoding
 \RequirePackage{amsmath} % For math environments
+\RequirePackage{amssymb}
 \RequirePackage{graphicx} % For including figures
 \RequirePackage[style=authoryear,backend=biber,natbib=true]{biblatex} % For bibliography management
 \RequirePackage{parskip} % Improved font rendering
@@ -29,6 +30,8 @@
 \RequirePackage{hyperref}
 \RequirePackage[capitalise, noabbrev]{cleveref}
 \RequirePackage{xstring}
+\RequirePackage{siunitx}
+\RequirePackage[acronym]{glossaries}
 \titleformat{\chapter}[hang]{\normalfont\huge\bfseries}{\thechapter}{1em}{}
 \ExecuteBibliographyOptions{maxcitenames=2,mincitenames=1}
 % 4. WLU FORMATTING DEFINITIONS

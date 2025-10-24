@@ -1,9 +1,17 @@
 \documentclass{support/Research_Proposal_cls}
 
+\input{support/abbreviations}
+\makeglossaries{}
 \addbibresource{support/Research_Proposal_bib.bib}
-
 \begin{document}
 \wluTitlePage{}
+% Print the list of abbreviations after the title page
+\tableofcontents
+\listoffigures
+\printglossary[type=\acronymtype,title={List of Abbreviations}]
+
+% \tableoffigures{}
+
 
 % Chapters moved to separate files under chapters/
 \include{chapters/Chapter01_Background}
