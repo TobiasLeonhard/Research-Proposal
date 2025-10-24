@@ -1,0 +1,80 @@
+# LaTeX Build Output Directory
+export/
+
+# LaTeX auxiliary files (in case any end up outside export/)
+*.aux
+*.lof
+*.log
+*.lot
+*.fls
+*.out
+*.toc
+*.fmt
+*.fot
+*.cb
+*.cb2
+*.synctex.gz
+*.synctex(busy)
+*.pdfsync
+
+# BibTeX files
+*.bbl
+*.bcf
+*.blg
+*-blx.aux
+*-blx.bib
+*.run.xml
+
+# Build tool auxiliary files
+*.fdb_latexmk
+*.ilg
+*.ind
+*.idx
+*.nav
+*.snm
+*.vrb
+*.dvi
+
+# Glossaries
+*.acn
+*.acr
+*.glg
+*.glo
+*.gls
+*.glsdefs
+*.lzo
+*.lzs
+
+# Temporary files
+*.bak
+*.swp
+*.swo
+*~
+*.tmp
+
+# OS-specific files
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Linux
+*~
+
+# VS Code
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+*.code-workspace
+
+# Backup files
+*.backup
+*.old

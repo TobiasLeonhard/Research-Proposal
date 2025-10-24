@@ -1,0 +1,57 @@
+{
+    // LaTeX Workshop settings for output directory
+    "latex-workshop.latex.outDir": "./export",
+    "latex-workshop.latex.clean.subfolder.enabled": true,
+    
+    // This ensures the PDF is still accessible
+    "latex-workshop.view.pdf.internal.synctex.keybinding": "double-click",
+    
+    // Standard recipe with output directory support
+    "latex-workshop.latex.tools": [
+        {
+            "name": "pdflatex",
+            "command": "pdflatex",
+            "args": [
+                "-synctex=1",
+                "-interaction=nonstopmode",
+                "-file-line-error",
+                "-output-directory=export",
+                "%DOC%"
+            ]
+        },
+        // {
+        //     "name": "bibtex",
+        //     "command": "bibtex",
+        //     "args": [
+        //         "export/%DOCFILE%"
+        //     ]
+        // }
+        // ,
+        {
+            "name": "biber",
+            "command": "biber",
+            "args": [
+                "--input-directory=export",
+                "--output-directory=export",
+                "%DOCFILE%"
+            ]
+        }
+    ],
+    "latex-workshop.latex.recipes": [
+        {
+            "name": "pdfLaTeX ➞ Biber ➞ pdfLaTeX × 2",
+            "tools": [
+                "pdflatex",
+                    "biber",
+                "pdflatex",
+                "pdflatex"
+            ]
+        },
+        {
+            "name": "pdfLaTeX",
+            "tools": [
+                "pdflatex"
+            ]
+        }
+    ]
+}
