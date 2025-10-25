@@ -21,7 +21,7 @@
 \RequirePackage{amssymb}
 \RequirePackage{graphicx} % For including figures
 \RequirePackage[style=authoryear,backend=biber,natbib=true]{biblatex} % For bibliography management
-\RequirePackage{parskip} % Improved font rendering
+% Do not load parskip: thesis requires first-line paragraph indentation (we set this explicitly below)
 % Ensure scalable fonts are available for microtype (prevents pdfTeX font-expansion errors)
 \RequirePackage{lmodern}
 \RequirePackage{xparse}
@@ -35,12 +35,12 @@
 \titleformat{\chapter}[hang]{\normalfont\huge\bfseries}{\thechapter}{1em}{}
 \ExecuteBibliographyOptions{maxcitenames=2,mincitenames=1}
 % 4. WLU FORMATTING DEFINITIONS
-% Margins: Left (1.5in min), Top/Bottom/Right (1.0in min)
+% Margins: All margins a minimum of 1 inch (user may set a larger left margin for binding if desired)
 \RequirePackage[
-    left=1.5in,
-    right=1in,
-    top=1in,
-    bottom=1in
+  left=1in,
+  right=1in,
+  top=1in,
+  bottom=1in
 ]{geometry}
 
 % Line Spacing: Double-spaced throughout the main text
@@ -48,17 +48,15 @@
     \doublespacing
 }
 
-% Paragraph Indentation: First line indented 5 spaces/standard half-inch
-% This is the default LaTeX behavior, but we set it explicitly for consistency.
-% We also remove the extra vertical space between paragraphs that some classes add.
-\setlength{\parindent}{0pt}
-\setlength{\parskip}{10pt} 
+% Paragraph Indentation: first line indented a standard half inch (0.5in)
+% Ensure there is no extra vertical space between paragraphs (use indentation instead)
+\setlength{\parindent}{0.5in}
+\setlength{\parskip}{0pt}
 
 
 % -------------------------------------------------------------------------
 % Title page helpers
 % Provide commands to populate a WLU-style title page for MSc proposals.
-\makeatletter
 % Field setters
 \newcommand{\thesistitle}[1]{\gdef\@thesistitle{#1}}
 \newcommand{\thesisauthor}[1]{\gdef\@thesisauthor{#1}}
@@ -68,39 +66,85 @@
 \newcommand{\universityname}[1]{\gdef\@universityname{#1}}
 \newcommand{\degreeinfo}[1]{\gdef\@degreeinfo{#1}}
 \newcommand{\submissiondate}[1]{\gdef\@submissiondate{#1}}
-
+\newcommand{\submissionyear}[1]{\gdef\@submissionyear{#1}}
+\newcommand{\department}[1]{\gdef\@department{#1}}
 % Default values (safe fallbacks)
 \AtBeginDocument{%
   \providecommand\@thesistitle{The Mobility of Radionuclides in Ice-Rich Continuous Permafrost: Study site assessment with Ground-Penetrating Radar and Baselevel Measurements}%
-  \providecommand\@thesisauthor{Tobias Leonhard}%
+  \providecommand\@proposaltitle{The Mobility of Radionuclides in Ice-Rich Continuous Permafrost: Study site assessment with Ground-Penetrating Radar and Baselevel Measurements}%
+  \providecommand\@thesisauthor{Tobias Leander Leonhard}%
+  \providecommand\@authordegreeinfo{BSc. Physics, Heidelberg University, 2024}%
+  \providecommand\@thesis{Thesis}%
+  \providecommand\@proposal{MSc Thesis Proposal}%
   \providecommand\@studentid{245839650}
   \providecommand\@supervisors{Prof. Dr. Philip Marsh, Dr. Elizabeth Priebe}
   \providecommand\@committeemembers{Jason Venkiteswaran, Colby Steelman}
   \providecommand\@universityname{Wilfrid Laurier University}
-  \providecommand\@degreeinfo{MSc. Geography Requirements}
-  \providecommand\@submissiondate{November 2025}
+  \providecommand\@degreeinfo{Master of Science in Geography}
+  \providecommand\@submissiondate{%
+    \ifcase\month\relax
+      \or January\or February\or March\or April\or May\or June%
+      \or July\or August\or September\or October\or November\or December%
+    \fi~\number\year
+  }
+  \providecommand\@submissionyear{\the\year}
+  \providecommand\@department{Department of Geography and Environmental Studies}
 }
-
+\makeatletter
 % The title page itself
-\newcommand{\wluTitlePage}{%
+\newcommand{\wluThesisTitlePage}{%
   \begin{titlepage}
     \centering
     {\LARGE\bfseries\@thesistitle\par}\vspace{1.5cm}
-    {\normalsize MSc Thesis Proposal\par}\vspace{1.5cm}
-    {\Large\@thesisauthor\par}
-    {\normalsize Student ID:\enspace\@studentid\par}\vspace{4.5cm}
-    {\large\textbf{Supervisors}\par\vspace{-10pt}\@supervisors\par}\vspace{0.2cm}
-    {\large\textbf{Committee Members}\par\vspace{-10pt}\@committeemembers\par}\vspace{0.2cm}
-    {\large\@universityname\par}
-    {\normalsize Submitted as part of \@degreeinfo\par\vspace{-10pt}}
-    {\normalsize \@submissiondate\par}
+    {\normalsize by\par}\vspace{0.5cm}
+    {\Large\@thesisauthor\par}\vspace{0.5cm}
+    {\normalsize (\@authordegreeinfo)\par}\vspace{1.5cm}
+    {\large\@thesis\par}\vspace{0.5cm}
+    {\normalsize Submitted to the \@department\par}
+    {\normalsize in partial fulfilment of the requirements for the degree of\par}
+    {\normalsize \@degreeinfo\par}\vspace{1.0cm}
     \vfill
+    % Copyright notice required on title page
+    {\normalsize\textcopyright\ \@thesisauthor\ \@submissionyear\par}
+    \vspace{0.5cm}
   \end{titlepage}
 }
-
-% Make \maketitle produce the WLU title page by default
-\renewcommand{\maketitle}{\wluTitlePage}
 \makeatother
+
+
+\makeatletter
+\newcommand{\wluProposalTitlePage}{%
+  \begin{titlepage}
+    \centering
+    {\LARGE\bfseries\@proposaltitle\par}\vspace{1.5cm}
+    {\normalsize by\par}\vspace{0.5cm}
+    {\Large\@thesisauthor\par}\vspace{0.5cm}
+    {\normalsize (\@authordegreeinfo)\par}\vspace{1.5cm}
+    {\large\@proposal\par}\vspace{0.5cm}
+    {\normalsize Submitted to the \@department\par}
+    {\normalsize in partial fulfilment of the requirements for the degree of\par}
+    {\normalsize \@degreeinfo\par}\vspace{1.0cm}
+    {\normalsize \@submissiondate\par}\vspace{2.0cm}
+    {\normalsize\textbf{Supervisors:} \@supervisors\par}\vspace{0.2cm}
+    {\normalsize\textbf{Committee Members:} \@committeemembers\par}
+    \vfill
+    % Copyright notice required on title page
+    {\normalsize\textcopyright\ \@thesisauthor\ \@submissionyear\par}
+    \vspace{0.5cm}
+  \end{titlepage}
+}
+\makeatother
+
+% Front matter helpers: Roman numbering for front matter, Arabic for main text
+\newcommand{\frontmatter}{%
+  \cleardoublepage
+  \pagenumbering{roman}
+}
+\newcommand{\mainmatter}{%
+  \cleardoublepage
+  \pagenumbering{arabic}
+  \setcounter{page}{1}
+}
 
 \endinput
 % wlu_msc_thesis.cls
