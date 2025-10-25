@@ -3,8 +3,8 @@ To meet the objectives discussed different methods will be used at study sites a
 The location of the station and the adjacent study sites are shown in \cref{fig:study_site_overview} and \cref{fig:study_sites}.
 
 \gls{tvc} is located 50 km north of Inuvik, Northwest Territories and was established in 1991~\citep{trailvalleycreekTrailValleyCreek2025}. 
-It is underlain by ice-rich continuous permafrost and offers access to multiple hummocks and \glspl{iwp} sites. While the completion of the \gls{ith} introduced increased anthropogenic influence and reduced isolation due to its proximity (1.5 km from the station), the resulting environmental effects, such as the degradation of snow albedo from road dust, have been quantitatively assessed as having a relatively small overall impact~\citep{hammarSnowAccumulationAlbedo2023}. 
-Furthermore, this study focuses on the Siksik Creek watershed, which is a sub-catchment of \gls{tvc} covering an area of 0.5 km2 north to east of \gls{tvc} as well as an instrumented \gls{iwp} site equipped with temperature loggers and ground water wells. 
+It is underlain by ice-rich continuous permafrost and offers access to multiple hummock and \gls{iwp} sites. While the completion of the \gls{ith} introduced increased anthropogenic influence and reduced isolation due to its proximity (1.5 km from the station), the resulting environmental effects, such as the degradation of snow albedo from road dust, have been quantitatively assessed as having a relatively small overall impact~\citep{hammarSnowAccumulationAlbedo2023}. 
+Furthermore, this study focuses on the Siksik Creek watershed, which is a sub-catchment of \gls{tvc} covering an area of \(\SI{0.5}{km^2}\) north to east of \gls{tvc} as well as an instrumented \gls{iwp} site equipped with temperature loggers and ground water wells. 
 Due to its extensive long-term data, research legacy, and existing infrastructure it is an explanatory site to improve the understanding of radionuclides in ice-rich continuous permafrost.
 \begin{figure}[htbp]
     \centering
@@ -14,7 +14,7 @@ Due to its extensive long-term data, research legacy, and existing infrastructur
 \begin{figure}[htbp]
     \centering
     \includegraphics[width=0.8\textwidth]{figures/Study Sites.pdf}
-    \caption[Location of study sites around \gls{tvc}.]{Location of the study sites in the Siksik Creek Watershed, and the ice-wedge polygon. 
+    \caption[Location of study sites around \gls{tvc}.]{Location of the study sites in the Siksik Creek Watershed, and the \gls{iwp} site. 
         The study sites are named according to their relative location in the watersheds. 
         Dots indicate the location of piezometers, lines indicate the transects used for the \gls{gpr} survey and the \gls{alt} measurements. 
         The air images of the \glspl{iwp} are indicating degenerating \glspl{iwp}. Air images are created by drone on June 2, 2023.}\label{fig:study_sites}
@@ -31,33 +31,33 @@ Additionally, there are \glspl{dsm} available created by drone imagery from 2023
 
 \section{Active Layer Dynamics}
 The standard field method to measure the \gls{alt} is to use a steel probe, also known as active layer probing. 
-Here, a steel probe is pushed vertically into the ground, up to the point where the probe hits a significant resistance, which is assumed to be the thaw front, which in its maximum extent equals the ALT.\@
+Here, a steel probe is pushed vertically into the ground, up to the point where the probe hits a significant resistance, which is assumed to be the thaw front, which in its maximum extent equals the \gls{alt}.\@
 The depth is then measured directly by measuring the length of the probe sticking out of the ground. 
 The advantages of this technique are that it is a direct measurement with inexpensive equipment that can be quickly deployed in the field. 
-However, there are also disadvantages of this technique. First it is highly labor-intensive and a sufficient balance between resolution and transect/area size must be found. 
+However, there are also disadvantages to this technique. First it is highly labor-intensive and a sufficient balance between resolution and transect/area size must be found. 
 Secondly, there is a sampling bias and a subjectivity bias as measurements are highly localized, buried rocks, for example, can be misinterpreted as the thaw front. 
 Furthermore, repeated probing can disturb the soil and vegetation, compress the ground and change the thermal regime influencing future surveys.
 
 To mitigate the relatively low resolution of active layer probing a \gls{gpr} can be used~\citep{angelopoulosApplicationCCRGPR2013,guoDetectionPermafrostSubgrade2015,harrisUsingGroundPenetratingRadar2025,hinkelDetectionSubsurfacePermafrost2001,koyanPotential3DGPR2025,moormanImagingNearsurfacePermafrost2007,sudakovaUsingGroundPenetrating2021,sudakovaGroundPenetratingRadarStudies2019}.
+The following section outlines the theoretical background of \gls{gpr} and the practical application in this study.
 \subsection{Ground Penetrating Radar}
 Different soil materials have different physical properties. 
 Geophysical methods like \gls{gpr} are using such different physical properties to acquire knowledge about the subsurface.
 
 \gls{gpr} identifies the physical boundaries of shallow subsurface structures by detecting variations in electromagnetic properties, such as dielectric permittivity, electrical conductivity, and magnetic permeability. 
-The following sections explore the theoretical foundations of \gls{gpr}, drawing primarily from \citet{geoscidevelopersGroundPenetratingRadar2017} online repository, which serves as a valuable resource for gaining deeper insight into the topic.
+The following sections explore the theoretical foundations of \gls{gpr}, drawing primarily from the~\citet{geoscidevelopersGroundPenetratingRadar2017} online repository.
 First, the physical properties relevant to \gls{gpr} are discussed, then the basic principles of \gls{gpr} are outlined, and finally the data acquisition and processing methods used in this study are described.    
 \subsubsection{Physical Properties}
 \paragraph{Dielectric Permittivity} 
 The dielectric permittivity (\(\varepsilon\)) of a material quantifies its ability to be polarized by an external electric field. 
-It is the sum of the permittivity of free space (\(\varepsilon_0\)) and the material's specific permittivity (\(\varepsilon_s\)), 
+It is the sum of the permittivity of free space (\(\varepsilon_0\)) and the material's specific permittivity, 
 therefore the relative permittivity (\(\varepsilon_r\)) is often used to describe a material's permittivity in relation to free space:
 \begin{align}
     \varepsilon_r &= \frac{\varepsilon}{\varepsilon_0}\label{al:varepsilon}
 \end{align}
 
-The relative permittivity of a material therefore significantly affects the \gls{gpr} signal's travel time and reflection strength. 
 The composition of the materials, such as porosity and water content, influences the relative permittivity. 
-As there is a big difference between air (\(\varepsilon_r \approx 1\)), fresh water (\(\varepsilon_r \approx 80\)), and ice (\(\varepsilon_r \approx 3\)) the presence of water or ice in the subsurface has a significant impact on \gls{gpr} signal behavior.
+As there is a big difference between air (\(\varepsilon_r \approx 1\)), fresh water (\(\varepsilon_r \approx 80\)), and ice (\(\varepsilon_r \approx 3\)) the presence of water or ice in the subsurface has a significant impact on the \gls{gpr} signal behavior.
 This goes hand in hand with the porosity of a material, as higher porosity allows for more water, ice, or air to be present in the material. 
 
 The dielectric permittivity can be assumed to be constant for all materials, as long as the frequency of the electromagnetic wave is sufficiently low (less than \(\SI{1}{\giga\hertz}\)). 
@@ -68,7 +68,6 @@ The relative permittivity of common subsurface materials varies significantly, w
 \paragraph{Electrical Conductivity}
 Electrical conductivity (\(\sigma\)) describes the ability of a material to conduct electric current. 
 Materials with high electrical conductivity, such as metals, allow electromagnetic waves to penetrate only shallowly due to rapid attenuation. 
-Electrical conductivity modifies the penetration depth of \gls{gpr} signals, with higher conductivity leading to reduced penetration depth.
 
 \paragraph{Magnetic Permeability}
 The magnetic permeability (\(\mu\)) of a material quantifies its ability to support the formation of a magnetic field within itself. 
@@ -77,7 +76,7 @@ However, most subsurface materials have magnetic permeabilities close to that of
 Magnetic permeability is therefore often neglected in \gls{gpr} studies.
 
 \subsubsection{Basic Principles of \gls{gpr}}
-\gls{gpr} is based on the idea that the subsurface is composed by a set of homogeneous regions that are separeted by boundaries with contrasting electromagnetic properties.
+\gls{gpr} is based on the idea that the subsurface is composed by a heterogeneous set of homogeneous regions that are separated by boundaries with contrasting electromagnetic properties.
 
 \gls{gpr} systems send pulses of high-frequency electromagnetic waves into the ground. 
 Such pulses contain a set of electromagnetic waves oscilating near a particular frequency. 
@@ -96,10 +95,10 @@ However, for most \gls{gpr} applications, the wave velocity \(v\) can be approxi
 \begin{align}
     v &= \frac{1}{\sqrt{\mu \varepsilon}} \approx \frac{c}{\sqrt{\varepsilon_r}} \qquad , \label{al:wave_velocity}
 \end{align}
-where \(c\) is the speed of light in a vacuum (\(\SI{2.998e8}{\meter\per\second}\)) and a non-magnetic material is assumed.
+where \(c\) is the speed of light in a vacuum (\(\SI{2.998e8}{\meter\per\second}\)) and a the magnetic permeability \(\mu\) is neglected.
 
 Equation (\ref{al:wave_velocity}) shows that the wave velocity decreases with increasing relative permittivity.
-Meaning that increasing water saturation decreases the wave velocity significantly, because of the high relative permittivity of water. 
+Meaning that, for example, increasing water saturation decreases the wave velocity significantly, because of the high relative permittivity of water. 
 While ice has a much lower relative permittivity (\(\varepsilon_r \approx 3\)), explaining why \gls{gpr} is well suited to study (ice-rich) permafrost environments.
 
 \paragraph{Absorption --- Attenuation and Skin Depth}
@@ -175,10 +174,10 @@ Meaning that the detection of deeper reflections requires higher initial signal 
 \subsubsection{Data Acquisition and Processing}
 For this study a \SI{500}{\mega\hertz} and \SI{1}{\giga\hertz} \gls{gpr} system from Sensors \& Software Inc.\ will be used. 
 The antennas will be used in a common offset configuration, where the transmitter and receiver antennas are separated by a fixed distance. 
-The \gls{gpr} system will be mounted in a sled and pulled along the transects shown in \cref{fig:study_sites}, one survey will be run while the surface is still snow covered (late April) and a second survey will be conducted in mid-August, when the \gls{alt} is close to its maximum. 
+The \gls{gpr} system will be mounted in a sled and pulled along the transects shown in \cref{fig:study_sites}, one survey will be run while the surface is still snow covered (early to mid of May) and a second survey will be conducted in mid-August, when the \gls{alt} is close to its maximum. 
 Every transect will be surveyed with both antennas two times, creating a start to end and end to start survey.
 The \gls{gpr} data will be processed using the ReflexW software from Sandmeier. 
-And \gls{dsm}, \gls{dtm}, and airborne photographs from drone surveys, as well as the ground samples will be used to interpret the processed data. 
+\gls{dsm}, \gls{dtm}, and airborne photographs from drone surveys, as well as the ground samples will be used to interpret the processed data. 
 
 \section{Suprapermafrost Water Observations}
 Groundwater wells will be installed in a grid like system on a sloped mineral earth hummock side (see \cref{fig:study_sites}). 
@@ -190,5 +189,5 @@ This information will be used to create a piezometric surface of the active laye
 Between the groundwater wells, surface temperature, the subsurface temperature at around 5 cm depth and the surface soil moisture will be measured weekly. 
 Providing information about soil insulation and soil reaction to weather changes.
 \section{Radionuclide composition}
-Water samples of groundwater from the groundwater wells and surface water from Siksik and \gls{tvc} will be analyzed for their radionuclide composition, for their general water chemistry, and their stable isotope composition. 
+Water samples of groundwater from the groundwater wells and surface water from Siksik and \gls{tvc} will be analyzed for their radionuclide composition, their general water chemistry, and their stable isotope composition. 
 Results will be interpreted in the context of active layer flow system, flow paths in the interhummocks and connection with the downgradient surface water bodies. 

@@ -71,7 +71,7 @@
 
 % Default values (safe fallbacks)
 \AtBeginDocument{%
-  \providecommand\@thesistitle{The Mobility of Radionuclides in Continuous Permafrost: Study site assessment with Ground-Penetrating Radar and Baselevel Measurements}%
+  \providecommand\@thesistitle{The Mobility of Radionuclides in Ice-Rich Continuous Permafrost: Study site assessment with Ground-Penetrating Radar and Baselevel Measurements}%
   \providecommand\@thesisauthor{Tobias Leonhard}%
   \providecommand\@studentid{245839650}
   \providecommand\@supervisors{Prof. Dr. Philip Marsh, Dr. Elizabeth Priebe}
